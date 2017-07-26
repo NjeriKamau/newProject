@@ -1,0 +1,120 @@
+<!DOCTYPE html> {% load staticfiles %} {% load crispy_forms_tags %}
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item | Mkulima Online</title>
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Open Sans Font [ OPTIONAL ]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="{% static 'css/nifty.min.css' %}" rel="stylesheet">
+    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+    <link href="{% static 'css/nifty-demo-icons.min.css' %}" rel="stylesheet">
+    <!--Themify Icons [ OPTIONAL ]-->
+    <link href="{% static 'css/themify-icons.min.css' %}" rel="stylesheet">
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="{% static 'css/magic-check.min.css' %}" rel="stylesheet">
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <link href="{% static 'css/bootstrapValidator.min.css' %}" rel="stylesheet">
+    <!--Select2 [ OPTIONAL ]-->
+    <link href="{% static 'css/select2.min.css' %}" rel="stylesheet">
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    
+    <!--=================================================
+
+
+
+    =================================================-->
+</head>
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+        <!--NAVBAR-->
+        <!--===================================================-->
+        {% include 'top-navbar.html' %}
+        <!--===================================================-->
+        <!--END NAVBAR-->
+        <div class="boxed">
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+                <!--Page Title-->
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                {% block content %} {% endblock %}
+            </div>
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+            <!--ASIDE-->
+            <!--===================================================-->
+            <!--===================================================-->
+            <!--END ASIDE-->
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            {% include 'navbar.html' %}
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+        </div>
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer">
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="show-fixed pull-right">
+                You have <a href="#" class="text-bold text-main"><span class="label label-danger">3</span> pending action.</a>
+            </div>
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <p class="pad-lft">&#0169; 2016 Mkulima-Online</p>
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+        <!-- SCROLL PAGE BUTTON -->
+        <!--===================================================-->
+        <button class="scroll-top btn">
+            <i class="pci-chevron chevron-up"></i>
+        </button>
+        <!--===================================================-->
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    
+    
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/mkulima-ajax.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    
+    <link href="{% static 'css/pace.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js/pace.min.js' %}"></script>
+    <!--jQuery [ REQUIRED ]-->
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="{% static 'js/nifty.min.js' %}"></script>
+    <!--=================================================-->
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <script src="{% static 'js/bootstrapValidator.min.js' %}"></script>
+    <!--Masked Input [ OPTIONAL ]-->
+    <script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
+    <!--Form validation [ SAMPLE ]-->
+    <script src="{% static 'js/form-validation.js' %}"></script>
+    <!--Select2 [ OPTIONAL ]-->
+    <script src="{% static 'js/select2.min.js' %}"></script>
+</body>
+
+</html>

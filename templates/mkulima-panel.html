@@ -1,0 +1,177 @@
+
+{% extends "base-panel.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="fluid">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-12 pull-lg-left">
+                                        <div class="row">
+                                            <div class="">
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                            <!--Tile-->
+                                            <!--===================================================-->
+                                            <a href="/products/create/">
+                                                <div class="col-md-4 col-lg-4 col-sm-10 panel media middle pad-all">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                                                    <i class="ti-plus icon-2x"></i>
+                                                </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text-2x mar-no text-semibold">Add</p>
+                                                        <p class="text-muted mar-no">Add new item</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!--===================================================-->
+                                            <!--Tile-->
+                                            <!--===================================================-->
+                                            <a href="/products/editlist/">
+                                                <div class="col-md-4 col-lg-4 col-sm-10 panel media middle pad-all">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                                                    <i class="ti-pencil-alt icon-2x"></i>
+                                                </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text-2x mar-no text-semibold">Edit</p>
+                                                        <p class="text-muted mar-no">Change exising item</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!--===================================================-->
+                                            <!--Tile-->
+                                            <!--===================================================-->
+                                            <a href="/products/deletelist/">
+                                                <div class="col-md-4 col-lg-4 col-sm-10 panel media middle pad-all">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
+                                                    <i class="ti-trash icon-2x"></i>
+                                                </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text-2x mar-no text-semibold">Delete</p>
+                                                        <p class="text-muted mar-no">Delete an existing item</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!--===================================================-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fixed-fluid">
+                                    <div class="row">
+                                        <div class="col-md-7 col-lg-7">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Account Activity</h3>
+                                                </div>
+                                                <!--Data Table-->
+                                                <!--===================================================-->
+                                                <div class="panel-body">
+                                                    <div class="pad-btm form-inline">
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Id</th>
+                                                                    <th>Timestamp</th>
+                                                                    <th>Customer</th>
+                                                                    <th>Product/Service</th>
+                                                                    <th>Quantity</th>
+                                                                    <th>Status</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for order in orders %}
+                                                                <tr>
+                                                                    <td>{{order.id}}</td>
+                                                                    <td>
+                                                                        <span class="text-muted"><i class="fa fa-clock-o" aria-hidden="true"></i>  {{order.timestamp}}</span>
+                                                                    </td>
+                                                                    <td>{{order.customer.username}}</td>
+                                                                    <td style="text-align:center;">{{order.product.name}}</td>
+                                                                    <td style="text-align:center;"> {{order.quantity}}</td>
+                                                                    {% if order.cleared %}
+                                                                    <td>Cleared</td>
+                                                                    {% else %}
+                                                                    <td>Pending</td>
+                                                                    {% endif %}
+
+                                                                </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="pull-right">
+                                                            <a href="/orders/">View More <i class="fa fa-forward" aria-hidden="true"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--===================================================-->
+                                                <!--End Data Table-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 pull-lg-right pull-sm-left">
+                                            <div class="col-sm-7 col-md-12 panel">
+                                                <div class="panel-heading">
+                                                    <div class="panel-control">
+                                                    </div>
+                                                    <h3 class="panel-title">My Network (Wakulima)</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="list-group bg-trans">
+                                                        {% for mkulima in wakulima %}
+                                                        <a href="#" class="list-group-item">
+                                                            <div class="media-left pos-rel">
+                                                            
+                                                                <img class="img-circle img-xs" src="{% if mkulima.image %}{{mkulima.image.url}}{% endif %}" alt="{% if not mkulima.image %}Profile Picture{% endif %}">
+                                                            
+                                                                <i class="badge badge-success badge-stat badge-icon pull-left"></i>
+                                                            
+                                                            
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="mar-no">{{mkulima.user.username}}</p>
+                                                                {% if mkulima %}
+                                                                <small class="text-muted"><b>Sacco Name: </b>{{mkulima.sacco_name}}</small> 
+                                                                {% endif %}
+                                                            </div>
+                                                        </a>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="pagination">
+                                                        <span class="step-links">
+
+                                                            {% if wakulima.has_previous %}
+                                                                <a href="?{{ page_request_var }}={{wakulima.previous_page_number}}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a>
+                                                            {% endif %}
+            
+
+                                                            <span class="current">
+                                                                Page {{ wakulima.number }} of {{wakulima.paginator.num_pages}}
+                                                            </span> 
+
+                                                            {% if wakulima.has_next %}
+                                                            <a href="?{{ page_request_var }}={{wakulima.next_page_number}}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a>
+                                                            {% endif %}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel hidden-md hidden-xs hidden-lg">
+                                                <div class="pull-sm-right">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">My Lists</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    </div>
+
+{% endblock %}
